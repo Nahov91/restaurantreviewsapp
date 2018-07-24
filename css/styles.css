@@ -38,7 +38,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0 0 20px;
 }
-article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+article, aside, canvas, details, figcaption, figure, footer, hgroup, menu, nav, section {
 	display: block;
 }
 #maincontent {
@@ -58,15 +58,26 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   text-transform: uppercase;
 }
 
-#header {
+header {
+  display: grid;
   grid-area: header;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 
+  "nav";
+  position: sticky;
+  top:0;
+  z-index: 1001;
 }
 /* ====================== Navigation ====================== */
 nav {
+  display: grid;
+  grid-area: nav;
   width: 100%;
   height: 80px;
   background-color: #252831;
   text-align:center;
+  position: sticky;
 }
 nav h1 {
   margin: auto;
@@ -79,12 +90,16 @@ nav h1 a {
   text-transform: uppercase;
 }
 #breadcrumb {
-    padding: 10px 40px 16px;
+  grid-area: breadcrumb;
+    padding: 10px 0 16px 0;
     list-style: none;
     background-color: #eee;
     font-size: 17px;
     margin: 0;
-    width: calc(50% - 80px);
+    width: 100%;
+}
+#breadcrumb a {
+  margin-left: 40px;
 }
 
 /* Display list items side by side */
@@ -116,6 +131,11 @@ nav h1 a {
   width: 100%;
   background-color: #ccc;
 }
+
+.leaflet-top {
+  top: 50px!important;
+}
+
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   display: grid;
@@ -240,8 +260,14 @@ nav h1 a {
 
 /* ====================== Restaurant Details ====================== */
 .inside header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 
+  "nav nav"
+  "breadcrumb . ";
   grid-area: header;
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 1000;
@@ -305,7 +331,7 @@ nav h1 a {
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 140px 40px 30px;
+  padding: 50px 40px 30px;
 }
 #reviews-container {
   display: grid;
@@ -367,6 +393,15 @@ nav h1 a {
     "mainContent"
     "footer";
   }
+
+  .inside header {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "nav"
+    "breadcrumb";
+  }
   
   #restaurants-list {
     grid-template-columns: 1fr;
@@ -384,13 +419,13 @@ nav h1 a {
   }
 
   .inside #map-container {
-    height: 30%;
-    position: fixed;
+    grid-area: mapContainerInside;
     right: 0;
     top: 80px;
     width: 100%;
-    grid-area: mapContainer;
+    height: 300px;
     z-index: 0;
+    position: sticky;
 }
 
 .inside #maincontent {
@@ -398,16 +433,16 @@ nav h1 a {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto auto;
   grid-template-areas: 
-  "mapCointainer"
+  "mapContainerInside"
   "restaurantContainer"
   "reviewsContainer"
   ;
 }
 
 #restaurant-container {
-  z-index: 2;
   background-color: #f3f3f3;
   padding: 10px;
+  z-index: 2;
 }
 
 #reviews-container {
@@ -420,6 +455,11 @@ nav h1 a {
 
 #breadcrumb {
   width: 100%;
+  padding: 10px 0 16px 0;
+}
+
+#breadcrumb a {
+  margin-left: 20px;
 }
 
 .inside #footer {
@@ -429,5 +469,6 @@ nav h1 a {
   padding: 25px 0;
   margin: 0;
 }
+
 
 }

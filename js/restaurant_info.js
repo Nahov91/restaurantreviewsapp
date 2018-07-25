@@ -152,6 +152,7 @@ createReviewHTML = (review) => {
   const name = document.createElement('p');
   name.innerHTML = review.name;
   li.appendChild(name);
+  li.setAttribute('tabindex', '0');
 
   const date = document.createElement('time');
   date.innerHTML = review.date;
@@ -164,6 +165,7 @@ createReviewHTML = (review) => {
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
   li.appendChild(comments);
+  li.setAttribute('tabindex', '0');
 
   return li;
 }
@@ -194,7 +196,9 @@ getParameterByName = (name, url) => {
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-/*Title for the map for screenreader*/
-window.addEventListener('load', function() {
-  document.querySelector('iframe').setAttribute('title', 'map');
+/*Title for the map for screenreader with removed focus*/
+window.addEventListener('load', function () {
+  let iframeElt = document.querySelector('iframe');
+  iframeElt.setAttribute('title', 'iframe map');
+  iframeElt.setAttribute('tabindex', '-1');
 });

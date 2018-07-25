@@ -200,9 +200,11 @@ addMarkersToMap = (restaurants = self.restaurants) => {
 
 } 
 
-/*Title for the map for screenreader*/
-window.addEventListener('load', function() {
-  document.querySelector('iframe').setAttribute('title', 'map');
+/*Title for the map for screenreader with removed focus*/
+window.addEventListener('load', function () {
+  let iframeElt = document.querySelector('iframe');
+  iframeElt.setAttribute('title', 'iframe map');
+  iframeElt.setAttribute('tabindex', '-1');
 });
 
 

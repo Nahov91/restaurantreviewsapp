@@ -143,7 +143,7 @@ header .skip-link {
   top: -100px;
   left: 0;
   z-index: 100;
-  
+
 }
 
 header .skip-link :focus {
@@ -247,8 +247,10 @@ header .skip-link :focus {
   grid-area: restaurantCuisine;
 }
 
-#restaurants-list p:nth-child(2n) {
+#restaurants-list adress {
   grid-area: restaurantAdress;
+  margin: 0 10px;
+  font-size: 11pt;
 }
 
 #restaurants-list p {

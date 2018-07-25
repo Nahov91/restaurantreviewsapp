@@ -1,13 +1,15 @@
 /**
  * Service worker registration.
-*/
+ */
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js', {scope:'./'}).then(function() {
-    console.log('SW Registered successfuly!');
-  })
-  .catch(function () {
-    console.log('SW registration failure');
-  })
+  navigator.serviceWorker.register('/service-worker.js', {
+      scope: './'
+    }).then(function () {
+      console.log('SW Registered successfuly!');
+    })
+    .catch(function () {
+      console.log('SW registration failure');
+    })
 }
 
 /**
@@ -89,10 +91,10 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
  */
 initMap = () => {
   self.newMap = L.map('map', {
-        center: [40.722216, -73.987501],
-        zoom: 12,
-        scrollWheelZoom: false
-      });
+    center: [40.722216, -73.987501],
+    zoom: 12,
+    scrollWheelZoom: false
+  });
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
     mapboxToken: 'pk.eyJ1IjoibmFob3Y5MSIsImEiOiJjamp5cjR3NTYwMnZwM3ducnAwdzFhdjJlIn0.Z3gms_RLrX9swJx1LqVGgA',
     maxZoom: 18,
@@ -209,13 +211,14 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     // Add marker to the map
     const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.newMap);
     marker.on("click", onClick);
+
     function onClick() {
       window.location.href = marker.options.url;
     }
     self.markers.push(marker);
   });
 
-} 
+}
 
 /*Title for the map for screenreader with removed focus*/
 window.addEventListener('load', function () {

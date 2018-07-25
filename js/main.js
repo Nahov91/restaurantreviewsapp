@@ -199,6 +199,13 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 
 } 
+
+/*Title for the map for screenreader*/
+window.addEventListener('load', function() {
+  document.querySelector('iframe').setAttribute('title', 'map');
+});
+
+
 /* addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map

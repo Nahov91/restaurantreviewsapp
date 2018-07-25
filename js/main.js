@@ -167,6 +167,7 @@ createRestaurantHTML = (restaurant) => {
   const name = document.createElement('h3');
   name.innerHTML = restaurant.name;
   li.append(name);
+  name.setAttribute('tabindex', '0');
 
   const neighborhood = document.createElement('p');
   neighborhood.innerHTML = restaurant.neighborhood;
@@ -177,7 +178,7 @@ createRestaurantHTML = (restaurant) => {
   li.append(address);
 
   const more = document.createElement('a');
-  more.innerHTML = 'View Details of ' + restaurant.name;
+  more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
@@ -202,7 +203,7 @@ addMarkersToMap = (restaurants = self.restaurants) => {
 
 /*Title for the map for screenreader with removed focus*/
 window.addEventListener('load', function () {
-  let iframeElt = document.querySelector('iframe');
+  let iframeElt = document.querySelector('#map');
   iframeElt.setAttribute('title', 'iframe map');
   iframeElt.setAttribute('tabindex', '-1');
 });
@@ -218,4 +219,3 @@ window.addEventListener('load', function () {
     self.markers.push(marker);
   });
 } */
-

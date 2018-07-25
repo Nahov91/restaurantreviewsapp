@@ -24,7 +24,7 @@ ul, li {
 	color: #333;
 }
 a {
-	color: orange;
+	color:rgb(145, 73, 1);
 	text-decoration: none;
 }
 a:hover, a:focus {
@@ -50,7 +50,7 @@ article, aside, canvas, details, figcaption, figure, footer, hgroup, menu, nav, 
 #footer {
   grid-area: footer;
   background-color: #444;
-  color: #aaa;
+  color: #fff;
   font-size: 8pt;
   letter-spacing: 1px;
   padding: 25px;
@@ -93,7 +93,7 @@ nav h1 a {
   grid-area: breadcrumb;
     padding: 10px 0 16px 0;
     list-style: none;
-    background-color: #eee;
+    background-color: #fff;
     font-size: 17px;
     margin: 0;
     width: 100%;
@@ -210,7 +210,7 @@ header .skip-link :focus {
   "restaurantAdress"
   "button";
   background-color: #fff;
-  border: none;
+  border: 1py solid rgba(0,0,0,0.28);
   border-radius: 4px;
   font-family: Arial,sans-serif;
   min-height: 380px;
@@ -232,7 +232,7 @@ header .skip-link :focus {
 }
 #restaurants-list li h3 {
   grid-area: title;
-  color: #f18200;
+  color: rgb(145, 73, 1);
   font-family: Arial,sans-serif;
   font-size: 14pt;
   font-weight: 200;
@@ -261,7 +261,7 @@ header .skip-link :focus {
 
 #restaurants-list li a {
   grid-area: button;
-  background-color: orange;
+  background-color: rgb(145, 73, 1);
   border:none;
   color: #fff;
   display: inline-block;
@@ -317,7 +317,7 @@ header .skip-link :focus {
   width: 50%;
 }
 #restaurant-name {
-  color: #f18200;
+  color: rgb(145, 73, 1);
   font-family: Arial,sans-serif;
   font-size: 20pt;
   font-weight: 200;
@@ -361,7 +361,7 @@ header .skip-link :focus {
   grid-area: restaurantContainer;
 }
 #reviews-container h2 {
-  color: #f58500;
+  color: rgb(145, 73, 1);
   font-size: 24pt;
   font-weight: 300;
   letter-spacing: -1px;

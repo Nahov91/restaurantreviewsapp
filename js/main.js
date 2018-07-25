@@ -2,7 +2,7 @@
  * Service worker registration.
 */
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js').then(function() {
+  navigator.serviceWorker.register('/service-worker.js', {scope:'./'}).then(function() {
     console.log('SW Registered successfuly!');
   })
   .catch(function () {
